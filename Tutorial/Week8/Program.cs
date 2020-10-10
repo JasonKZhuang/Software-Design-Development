@@ -13,6 +13,8 @@ namespace KIT206_Tutorial08
     // and that takes in a single integer parameter.
     //It doesn’t specify what the behaviour of the method must be, 
     // only what parameters and return type it must have.
+
+
     public delegate Employee ManageWorker(int id);
 
     class Program
@@ -20,7 +22,7 @@ namespace KIT206_Tutorial08
         static void Main(string[] args)
         {
             Boss boss = new Boss();
-
+            
             //Action is an existing delegate in the System namespace. 
             //It is compatible with any method that has no return value (its return type is void) 
             // and that takes no parameters
@@ -30,11 +32,13 @@ namespace KIT206_Tutorial08
             ManageWorker manage1 = boss.Use;
             ManageWorker manage2 = boss.Fire;
 
-            Console.WriteLine("Dealing with {0}", manage1(1));
+            int empoyeeID = 1;
+            Console.WriteLine("Dealing with {0}", manage1(empoyeeID));
             Console.WriteLine("After dealing with that employee");
             doSomething();
 
-            Console.WriteLine("Fire to {0}", manage2(2));
+            empoyeeID = 2;
+            Console.WriteLine("Fire to {0}", manage2(empoyeeID));
             Console.WriteLine("After firing that employee");
             doSomething();
 

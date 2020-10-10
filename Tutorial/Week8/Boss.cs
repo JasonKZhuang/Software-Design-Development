@@ -8,24 +8,31 @@ namespace KIT206_Tutorial08
 {
     class Boss
     {
-        private List<Employee> staff;
-
+        private List<Employee> _staff;
         public List<Employee> Staff
         {
             get
             {
-                return staff;
+                return _staff;
             }
 
             set
             {
-                staff = value;
+                _staff = value;
             }
         }
 
+        //constructor method
+        //there is no return value, and the name of the method is same as the name of the class
         public Boss()
         {
             Staff = Agency.Generate();
+        }
+
+        //the construtor method could have parameters
+        public Boss(int age)
+        {
+            ;
         }
 
         /// <summary>
@@ -50,6 +57,7 @@ namespace KIT206_Tutorial08
                 }
             }
             return null;
+
             //FYI, if you have an interest in lambda expressions the above could be achieved with:
             //return staff.First(e => e.ID == id);
         }
@@ -60,12 +68,13 @@ namespace KIT206_Tutorial08
         /// </summary>
         public Employee Fire(int id)
         {
-            Employee target = Use(id);
-            if (target != null)
+            Employee eInstance = Use(id);
+
+            if (eInstance != null)
             {
-                Staff.Remove(target);
+                Staff.Remove(eInstance);
             }
-            return target;
+            return eInstance;
         }
 
         //Filtering with LINQ

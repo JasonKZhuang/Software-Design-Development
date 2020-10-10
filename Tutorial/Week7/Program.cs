@@ -38,18 +38,24 @@ namespace KIT206_Tutorial07
             }
             Console.WriteLine("=======================================================");
 
-
+            //=============================================================================//
             List<Employee> employees = GenerateTestData();
             DisplayEmployees(employees);
 
             Console.WriteLine("\nMale employees:");
-            DisplayEmployees( FilterByGender(employees, Gender.M) );
+            DisplayEmployees(Program.FilterByGender1(employees, Gender.M) );
 
             Console.WriteLine("\nFemale employees:");
-            DisplayEmployees( FilterByGender(employees, Gender.F) );
+            DisplayEmployees(Program.FilterByGender1(employees, Gender.F) );
 
             Console.WriteLine("\nIndeterminate, unspecified or intersex employees:");
-            DisplayEmployees( FilterByGender(employees, Gender.X) );
+            DisplayEmployees(Program.FilterByGender1(employees, Gender.X) );
+
+
+            Console.WriteLine("\nMale employees22222:");
+            Program pInstance = new Program();
+            DisplayEmployees(pInstance.FilterByGender2(employees, Gender.M));
+
         }
 
         // Returns a new list of Employees containing some test examples.
@@ -66,7 +72,20 @@ namespace KIT206_Tutorial07
         }
 
         // Returns a new list of Employees containing those with the specified gender.
-        static List<Employee> FilterByGender(List<Employee> staff, Gender gender)
+        static List<Employee> FilterByGender1(List<Employee> staff, Gender gender)
+        {
+            List<Employee> filtered = new List<Employee>();
+            foreach (Employee e in staff)
+            {
+                if (e.Gender == gender)
+                {
+                    filtered.Add(e);
+                }
+            }
+            return filtered;
+        }
+
+        public List<Employee> FilterByGender2(List<Employee> staff, Gender gender)
         {
             List<Employee> filtered = new List<Employee>();
             foreach (Employee e in staff)
