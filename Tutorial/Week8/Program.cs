@@ -30,8 +30,6 @@ namespace KIT206_Tutorial08
             ManageWorker manage1 = boss.Use;
             ManageWorker manage2 = boss.Fire;
 
-            
-
             Console.WriteLine("Dealing with {0}", manage1(1));
             Console.WriteLine("After dealing with that employee");
             doSomething();
@@ -40,20 +38,12 @@ namespace KIT206_Tutorial08
             Console.WriteLine("After firing that employee");
             doSomething();
 
+            //======Filtering with LINQ=======================================
+            boss.Staff =  boss.FilterByGender(Gender.X);
+            doSomething();
+
+
         }
 
-/*
-        From an early part of the tutorial:
-  
-        static void Main(string[] args)
-        {
-            Boss boss = new Boss();
-
-            boss.Display();
-            Console.WriteLine("Dealing with {0}", boss.Use(1));
-            Console.WriteLine("After dealing with that employee");
-            boss.Display();
-        }
-*/
     }
 }

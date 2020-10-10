@@ -13,6 +13,7 @@ namespace KIT206_Tutorial09
 
         public Boss()
         {
+            //Tutorial 2.2
             staff = Agency.LoadAll();
 
             //Part of step 2.3.2 in Week 9 tutorial

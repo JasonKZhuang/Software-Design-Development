@@ -11,8 +11,33 @@ namespace KIT206_Tutorial07
         static void Main(string[] args)
         {
             //The first test case
-            //Employee e = new Employee { name = "Jane", id = 1, gender = Gender.F };
-            //Console.WriteLine("Test employee == " + e);
+            List<Employee> employees1 = new List<Employee>();
+
+            //Using for add Employees to List
+            for (int i = 0; i < 10; i++)
+            {
+                Employee e = new Employee();
+                e.Age = i;
+                if (i % 2 == 0)
+                {
+                    e.Name = "Jane" + i;
+                    e.Gender = Gender.M;
+                }
+                else
+                {
+                    e.Name = "Bob" + i;
+                    e.Gender = Gender.F;
+                }
+                employees1.Add(e);
+            }
+
+            //using foreach print each employee in List, calling the tostring method
+            foreach (Employee e in employees1)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            Console.WriteLine("=======================================================");
+
 
             List<Employee> employees = GenerateTestData();
             DisplayEmployees(employees);

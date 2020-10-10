@@ -23,11 +23,10 @@ namespace KIT206_Tutorial09
             doSomething();
 
             //For testing optional implementation of step 2.3.4:
-            /*
-            foreach (Employee e in boss.Workers) {
+            foreach (Employee e in boss.Workers)
+            {
                 Console.WriteLine("Employee {0} is busy? {1}", e.Name, Agency.EmployeeBusyNow(e));
             }
-            */
         }
 
     }

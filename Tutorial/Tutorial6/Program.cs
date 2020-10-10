@@ -13,6 +13,7 @@ namespace KIT206_Tutorial06
         {
             List<Employee> employees = new List<Employee>();
 
+            //Using for add Employees to List
             for (int i = 0; i < 10; i++)
             {
                 Employee e = new Employee();
@@ -29,22 +30,22 @@ namespace KIT206_Tutorial06
                 employees.Add(e);
             }
 
+            //using foreach print each employee in List, calling the tostring method
             foreach (Employee e in employees)
             {
                 Console.WriteLine(e.ToString());
             }
-
             Console.WriteLine("=======================================================");
 
-            List<Employee> newEmployees = FilterByGender(employees, Gender.F);
 
+            //using custerm Filter method to filter List by Gender
+            List<Employee> newEmployees = FilterByGender(employees, Gender.F);
+            //Using foreach to Print the filtered result
             foreach (Employee e in newEmployees)
             {
                 Console.WriteLine(e.ToString());
             }
-
-            
-
+            Console.WriteLine("=======================================================");
 
         }
 

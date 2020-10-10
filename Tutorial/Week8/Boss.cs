@@ -10,9 +10,22 @@ namespace KIT206_Tutorial08
     {
         private List<Employee> staff;
 
+        public List<Employee> Staff
+        {
+            get
+            {
+                return staff;
+            }
+
+            set
+            {
+                staff = value;
+            }
+        }
+
         public Boss()
         {
-            staff = Agency.Generate();
+            Staff = Agency.Generate();
         }
 
         /// <summary>
@@ -20,7 +33,9 @@ namespace KIT206_Tutorial08
         /// </summary>
         public void Display()
         {
-            staff.ForEach(Console.WriteLine);
+            Console.WriteLine("=======================================================");
+            Staff.ForEach(Console.WriteLine);
+            Console.WriteLine("=======================================================");
         }
 
         /// <summary>
@@ -28,7 +43,7 @@ namespace KIT206_Tutorial08
         /// </summary>
         public Employee Use(int id)
         {
-            foreach (Employee e in staff) {
+            foreach (Employee e in Staff) {
                 if (e.ID == id)
                 {
                     return e;
@@ -48,9 +63,18 @@ namespace KIT206_Tutorial08
             Employee target = Use(id);
             if (target != null)
             {
-                staff.Remove(target);
+                Staff.Remove(target);
             }
             return target;
+        }
+
+        //Filtering with LINQ
+        public List<Employee> FilterByGender(Gender gender)
+        {
+            var selected = from Employee e in Staff
+                           where e.Gender == gender
+                           select e;
+            return new List<Employee>(selected);
         }
 
     }

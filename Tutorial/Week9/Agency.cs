@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using MySql.Data.MySqlClient;
 using MySql.Data.Types;
+using MySql.Data.Common;
+
 
 namespace KIT206_Tutorial09
 {
@@ -79,6 +81,7 @@ namespace KIT206_Tutorial09
         }
 
         //For step 2.3 in Week 9 tutorial
+        //Parameter id : Employee ID
         public static List<RosterItem> LoadRosterItems(int id)
         {
             List<RosterItem> work = new List<RosterItem>();
@@ -89,9 +92,9 @@ namespace KIT206_Tutorial09
             try
             {
                 conn.Open();
-
-                MySqlCommand cmd = new MySqlCommand("select day, start, end from consultation where staff_id=?id", conn);
-                cmd.Parameters.AddWithValue("id", id);
+                string mySQL = "select day, start, end from consultation where staff_id=?p_id";
+                MySqlCommand cmd = new MySqlCommand(mySQL, conn);
+                cmd.Parameters.AddWithValue("p_id", id);
                 rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
